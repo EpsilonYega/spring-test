@@ -1,2 +1,8 @@
 server:
   port: 8181
+
+spring:
+  datasource:
+    url: jdbc:tc:postgresql:16://localhost:5432/zavarooshka?TC_DAEMON=true
+    username: postgres
+    password: postgres

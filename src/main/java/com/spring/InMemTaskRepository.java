@@ -10,10 +10,7 @@ import java.util.UUID;
 @Repository
 public class InMemTaskRepository implements TaskRepository {
 
-    List<Task> tasks = new LinkedList<>() {{
-        this.add(new Task("Первая задача"));
-        this.add(new Task("Вторая задача"));
-    }};
+    List<Task> tasks = new LinkedList<>();
     @Override
     public List<Task> findAll() {
         return this.tasks;
@@ -29,5 +26,14 @@ public class InMemTaskRepository implements TaskRepository {
         return this.tasks.stream()
                 .filter(task -> task.id().equals(id))
                 .findFirst();
+    }
+
+    @Override
+    public List<Task> findByApplicationUserId(UUID id) {
+        throw new UnsupportedOperationException();
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
     }
 }
